@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="css/baskets.css" />
+        <title>ESC</title>
+    </head>
+    <body>
+        <header>
+            <nav class="nav-menu">
+                <a href="index.html"><img src="images/icons/logo.png" style="height: 100px;"/></a>
+                <ul>
+                    <li><a href="" > <p>Your Cart</p> <img class="icon" src="images/icons/shopcart.png"/> </a></li>
+                    <li><a href=""> <p>Register</p> <img class="icon" src="images/icons/register.png"/></a></li>
+                    <li><a href=""> <p>Login</p> <img class="icon" src="images/icons/login.png"/></a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-category"> 
+                <a href=""> <p>Daiana's candles</p></a>
+                <a href="index.html"> <p>Raluca's baskets</p></a>
+                <a href="" > <p>Antonela's crosses</p></a>
+                <a href=""> <p>Mirela's hats</p></a>
+                <a href="" > <p>Doina's jewerlys</p></a>
+                <a href=""> <p>Carmina's paintings</p></a>
+            </div>
+        </header>
+
+        <div class="search">
+            <form action="" class="form">
+                <input type="search" name="search-bar" id="hero-search" />
+                <input type="submit" name="search-button" id="search-button-submit" value="Caută"/> 
+            </form>
+        </div>
+
+        <div class="container">
+            <div class="filter">
+                <h1>Filter Results</h1>
+                <div class="brand">
+                    <div>
+                        <h2>Brand (10)</h2>
+                        <button onclick="myF()" id="brandBtn">o</button>
+                    </div>
+                    <form action="">
+                        <input type="checkbox" id="pulsar" name="Brand" value="Bike">
+                        <label for="pulsar"> Pulsar</label><br>
+                        <input type="checkbox" id="rolex" name="Brand" value="Car">
+                        <label for="rolex"> Rolex</label><br>
+                        <input type="checkbox" id="rotary" name="Brand" value="Boat">
+                        <label for="rotary"> Rotary</label><br>
+                        <input type="checkbox" id="seiko" name="Brand" value="Boat">
+                        <label for="seiko"> Seiko</label><br>
+                        <input type="checkbox" id="sekonda" name="Brand" value="Boat">
+                        <label for="sekonda"> Sekonda</label><br>
+                    </form>
+                </div>
+
+
+                <h2>Model</h2>
+                <h2>Gender</h2>
+            </div>
+
+
+            <div class="browse">
+                <p><u>Browsing products for Rolex - 300 results</u></p>
+                <form action="">
+                    <div>
+                        <label for="price"> Sort by </label>
+                        <br/>
+                        <select name="price" id="price">
+                            <option value="0">Price: Low-High</option>
+                            <option value="100">100$</option>
+                            <option value="200">200$</option>
+                            <option value="300">300$</option>
+                            <option value="400">400$</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="nrPerPage"> Results per page </label>
+                        <br/>
+                        <select name="itemsperpage" id="nrPerPageBaskets1" onchange="reloadFunctions(-1)">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="50">50</option>
+                        </select>
+                    </div>
+                </form>
+                <div class="products" id="baskets-products">
+                </div>
+                
+                <div class="browseBottom">
+                    <form action="">
+                        <label for="nrPerPage" style="margin-right: 10px;"> Results per page </label>
+                        <br/>
+                        <select name="itemsperpage" id="nrPerPageBaskets2" onchange="reloadFunctions(-2)">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="50">50</option>
+                        </select>
+                    </form>
+                    <div class="showingResults">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ad">
+            <p>Start your free trial today. Cancel or upgrade anytime.</p>
+            <button>Button</button>
+        </div>
+
+        <footer>
+            <ul>
+                <li>The Footer</li>
+                <li>2019 The Website, Inc.</li>
+            </ul>
+            <ul>
+                <li>ABOUT</li>
+                <li>Team</li>
+                <li>Jobs</li>
+                <li>Blog</li>
+                <li>Press</li>
+            </ul>
+            <ul>
+                <li>HELP</li>
+                <li>FAQ</li>
+                <li>Security</li>
+                <li>Terms of Service</li>
+                <li>Privacy Policy</li>
+            </ul>
+            <ul>
+                <li>CONNECT</li>
+                <li><img class="icon" src="images/icons/facebook.png"/><p>Facebook</p></li>
+                <li><img class="icon" src="images/icons/youtube.png"/><p>Youtube</p></li>
+                <li><img class="icon" src="images/icons/twitter.png"/><p>Twitter</p></li>
+                <li><img class="icon"src="images/icons/instagram.png"/><p>Instagram</p></li>
+            </ul>
+        </footer>
+
+        <script src="global.js" type="text/javascript"></script>
+        <script src="baskets.js" type="text/javascript"></script>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+@import 'all';
+
+header .nav-category {
+    border-bottom: 0;
+    a:nth-of-type(2) {color: $pal;}
+}
+
+.search form{
+    display: flex;
+    justify-content: center;
+    background-color: $pal;
+    padding: 20px;
+    gap: 10px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.filter {
+    background-color: $pal;
+    margin: 31px 12px;
+    border-radius: 7px;
+    padding: 0 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    .brand div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button{
+            height: min-content;
+            background-color: $white;
+            border-radius: 10px;
+            color: $red;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    }
+
+    h2{
+        font-weight: 100;
+    }
+}
+
+.browse {
+    width: 95%;
+    padding: 10px;
+
+    p { margin-left: 1.5%;}
+    form{
+        display: flex;
+        margin: 20px 1.5%;
+        gap: 16px;
+        select{
+            background-color: $white; 
+
+            &#nrPerPage2{
+                width: fit-content;
+                margin: 3px 10px;
+            }
+        }
+    }
+    .browseBottom {
+        form{gap: 0;margin: 0;}
+
+        .showingResults{
+            display: flex;
+            gap: 10px;
+
+            p{width: max-content;margin: 0;}
+        }
+    }
+}
+
+
+#baskets-products{
+    gap: 30px;
+}
