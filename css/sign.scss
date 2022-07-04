@@ -1,0 +1,51 @@
+@import 'all';
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+        rgba(123, 94, 94, 0.507),
+        rgba(190, 175, 175, 0.618)
+      );
+}
+
+.sign{
+    position: relative;
+    height: 65%;
+    width: 80%;
+    margin: auto auto;
+    background-color: $red;
+    
+    border-radius: 10px;
+    background-image: url('../images/hero/back3.jpg');
+    background-image: linear-gradient(
+        rgba(123, 94, 94, 0.507),
+        rgba(48, 13, 13, 0.618)
+      ),
+      url("../images/hero/back2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 10px 8px 16px 0 rgba(0, 0, 0, 0.2), 10 16px 30px 0 rgba(0, 0, 0, 0.19);
+}
+
+form.sign-form{    
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: $white;
+
+  input{ height: 15px; width: 150px; background-color: $pal; color: $red;}
+  > input { width: 200px; height: 50px; font-size: $medium; background-color: $white;}
+}
+
+img.logo{position: absolute; top: 0; right: 1%; width: 20%;}
+#signin{
+  width: 40%;
+  img.logo{
+    width: 50%; left: 1%;
+  }
+}

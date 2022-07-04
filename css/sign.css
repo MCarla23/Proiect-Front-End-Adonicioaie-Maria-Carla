@@ -21,6 +21,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: #240115;
 }
 
 button {
@@ -204,7 +205,7 @@ footer ul li:first-child {
 }
 
 .card {
-  height: auto;
+  width: 250px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -221,8 +222,13 @@ footer ul li:first-child {
   border-radius: 12px;
   background-color: #a0919a;
   color: #240115;
+  border: 2px solid #240115;
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card a {
+  width: 100%;
 }
 
 .card img {
@@ -242,9 +248,6 @@ footer ul li:first-child {
   font-size: 20px;
   text-align: center;
   margin: 10px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
 }
 
 .products {
@@ -267,7 +270,12 @@ form {
   width: 100%;
 }
 
-form input[type="search"] {
+form h1, form p {
+  font-family: 'Cinzel', serif;
+}
+
+form input {
+  height: 40px;
   width: 40%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -275,14 +283,37 @@ form input[type="search"] {
   border-radius: 4px;
   font-size: 16px;
   background-color: white;
+  padding: 12px 20px 12px 40px;
+}
+
+form input[type="checkbox"], form input[type="radio"] {
+  height: 20px;
+  width: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 10px solid #240115;
+  border-radius: 10px;
+  background-color: white;
+  padding: 0;
+}
+
+form input[type="search"] {
+  width: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid #a0919a;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #FDFAF6;
   background-image: url("../images/icons/search.png");
-  background-position: 10px 10px;
+  background-position: 12px;
   background-size: 30px;
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
 }
 
 form input[type="submit"] {
+  width: 150px;
   background-color: #240115;
   color: #a0919a;
   font-weight: bold;
@@ -292,19 +323,11 @@ form input[type="submit"] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Cinzel', serif;
 }
 
 form button {
   width: 10%;
-}
-
-header .nav-category {
-  border-bottom: 0;
-}
-
-header .nav-category a:nth-of-type(2) {
-  color: #a0919a;
 }
 
 .search form {
@@ -317,60 +340,43 @@ header .nav-category a:nth-of-type(2) {
   background-color: #a0919a;
   padding: 20px;
   gap: 10px;
-}
-
-.container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  height: 80px;
 }
 
 .filter {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
   background-color: #a0919a;
-  margin: 31px 12px;
+  margin: 31px 20px;
   border-radius: 7px;
-  padding: 0 20px;
+  padding: 30px 30px;
+  border: 2px solid #240115;
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.filter .brand div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.filter h1, .filter h2 {
+  margin: 3px;
 }
 
-.filter .brand div button {
-  height: -webkit-min-content;
-  height: -moz-min-content;
-  height: min-content;
-  background-color: #FDFAF6;
-  border-radius: 10px;
-  color: #240115;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.filter h1 {
+  text-align: center;
 }
 
-.filter h2 {
-  font-weight: 100;
+.filter form div {
+  padding: 0 40px;
+}
+
+.filter div {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .browse {
   width: 95%;
   padding: 10px;
-}
-
-.browse p {
-  margin-left: 1.5%;
 }
 
 .browse form {
@@ -411,7 +417,82 @@ header .nav-category a:nth-of-type(2) {
   margin: 0;
 }
 
-#baskets-products {
-  gap: 30px;
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(123, 94, 94, 0.507)), to(rgba(190, 175, 175, 0.618)));
+  background-image: linear-gradient(rgba(123, 94, 94, 0.507), rgba(190, 175, 175, 0.618));
 }
-/*# sourceMappingURL=baskets.css.map */
+
+.sign {
+  position: relative;
+  height: 65%;
+  width: 80%;
+  margin: auto auto;
+  background-color: #240115;
+  border-radius: 10px;
+  background-image: url("../images/hero/back3.jpg");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(123, 94, 94, 0.507)), to(rgba(48, 13, 13, 0.618))), url("../images/hero/back2.jpg");
+  background-image: linear-gradient(rgba(123, 94, 94, 0.507), rgba(48, 13, 13, 0.618)), url("../images/hero/back2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-box-shadow: 10px 8px 16px 0 rgba(0, 0, 0, 0.2), 10 16px 30px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 10px 8px 16px 0 rgba(0, 0, 0, 0.2), 10 16px 30px 0 rgba(0, 0, 0, 0.19);
+}
+
+form.sign-form {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+  color: #FDFAF6;
+}
+
+form.sign-form input {
+  height: 15px;
+  width: 150px;
+  background-color: #a0919a;
+  color: #240115;
+}
+
+form.sign-form > input {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  background-color: #FDFAF6;
+}
+
+img.logo {
+  position: absolute;
+  top: 0;
+  right: 1%;
+  width: 20%;
+}
+
+#signin {
+  width: 40%;
+}
+
+#signin img.logo {
+  width: 50%;
+  left: 1%;
+}
+/*# sourceMappingURL=sign.css.map */

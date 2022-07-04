@@ -417,94 +417,24 @@ form button {
   margin: 0;
 }
 
-.hero {
+header .nav-category {
+  border-bottom: 0;
+}
+
+header .nav-category a:nth-of-type(2) {
+  color: #a0919a;
+}
+
+.container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  text-align: center;
-  padding: 6% 10%;
-  width: 75%;
-  margin: 0 auto;
-  background-image: url("../images/hero/fundal4.jpg");
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(123, 94, 94, 0.507)), to(rgba(48, 13, 13, 0.618))), url("../images/hero/fundal2.jpg");
-  background-image: linear-gradient(rgba(123, 94, 94, 0.507), rgba(48, 13, 13, 0.618)), url("../images/hero/fundal2.jpg");
-  background-size: cover;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  color: #240115;
-  background-color: #FDFAF6;
-  font-size: 35px;
-  font-family: 'Crimson Text', serif;
-  font-weight: 500;
 }
 
-.hero p {
-  margin: 0;
+#baskets-products {
+  gap: 30px;
 }
-
-.small-hero {
-  height: 200px;
-  width: 100%;
-  padding: 0;
-  background-image: url("../images/products/lent.jpg");
-  color: #240115;
-  border-top: 1px solid #240115;
-  border-bottom: 1px solid #240115;
-}
-
-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 3% 10% 5% 10%;
-}
-
-section > * {
-  margin: 0;
-}
-
-section > :nth-child(2) {
-  margin-bottom: 2%;
-  font-weight: 80;
-}
-
-section:nth-of-type(2) .products .card {
-  background-color: #240115;
-  color: #a0919a;
-}
-
-section:nth-of-type(3) {
-  background-color: #a0919a;
-}
-
-section:nth-of-type(3) .card {
-  background-color: #a0919a;
-  margin-bottom: 40px;
-  border: 2px solid #240115;
-}
-
-section:nth-of-type(3) .card button {
-  background-color: #240115;
-  color: #a0919a;
-}
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=raluca.css.map */
