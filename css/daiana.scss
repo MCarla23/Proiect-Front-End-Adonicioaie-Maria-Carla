@@ -1,15 +1,5 @@
 @import 'all';
 
 header .nav-category {
-    border-bottom: 0;
-    a:nth-of-type(1) {color: $pal;}
-}
-
-.container{
-    display: flex;
-    justify-content: center;
-}
-
-#candles-products{
-    gap: 30px;
+    a:nth-of-type(1) {color: $rose;}
 }

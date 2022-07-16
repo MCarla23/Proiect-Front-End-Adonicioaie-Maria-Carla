@@ -1,43 +1,10 @@
 .filter {
     height: max-content;
-    background-color: $pal;
-    margin: 31px 20px;
-    border-radius: 7px;
-    padding: 30px 30px;
-    border: 2px solid $red;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 6px 30px;
 
-    h1, h2{margin: 3px;}
-    h1{text-align: center;}
+    h1, h2{margin: 3px; font-size: 20px;font-weight: 500;}
+    h1{text-align: center; font-size: 30px; }
     form div{padding: 0 40px;}
     div{width: max-content;}
-}
-
-.browse {
-    width: 95%;
-    padding: 10px;
-
-    form{
-        display: flex;
-        margin: 20px 1.5%;
-        gap: 16px;
-        select{
-            background-color: $white; 
-
-            &#nrPerPage2{
-                width: fit-content;
-                margin: 3px 10px;
-            }
-        }
-    }
-    .browseBottom {
-        form{gap: 0;margin: 0;}
-
-        .showingResults{
-            display: flex;
-            gap: 10px;
-
-            p{width: max-content;margin: 0;}
-        }
-    }
+    form input[type='submit']{width: 150px; height: 50px; color:white; font-size: 17px; font-family: 'Poppins', sans-serif;}
 }

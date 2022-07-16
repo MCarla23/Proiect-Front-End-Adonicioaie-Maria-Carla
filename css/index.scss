@@ -6,23 +6,25 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 6% 10%;
-    width: 75%;
+    padding: 5% 18%;
+    width: 100%;
     margin: 0 auto;
-
-
-    background-image: url("../images/hero/fundal4.jpg");
-    background-image: linear-gradient(
-        rgba(123, 94, 94, 0.507),
-        rgba(48, 13, 13, 0.618)
+    color: $pal;
+    // linear-gradient(
+    //     rgba(99, 71, 71, 0.507),
+    //     rgba(48, 13, 13, 0.618)
+    //   ),
+    background-image: 
+    linear-gradient(
+        rgba(10, 5, 5, 0.72),
+        rgba(1, 0, 0, 0.699)
       ),
-      url("../images/hero/fundal2.jpg");
+      url("../images/hero/wall.jpg");
+      
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    color: $red;
-    background-color: $white;
-    font-size: $big;
-    font-family: 'Crimson Text', serif;
+    font-size: 35px;
+    font-family: 'Arima', cursive;
     font-weight: 500;
     p{margin: 0;}
 }
@@ -31,8 +33,13 @@
     height: 200px;
     width: 100%;
     padding: 0;
-    background-image: url('../images/products/lent.jpg');
-    color: $red;
+    background-image: linear-gradient(
+        rgba(123, 94, 94, 0.507),
+        rgba(48, 13, 13, 0.618)
+      ),
+      url("../images/hero/back2.jpg");
+    background-size: contain;
+    color: white;
     border-top: 1px solid $red;
     border-bottom: 1px solid $red;
 }
@@ -40,7 +47,6 @@
 section {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
     padding: 3% 10% 5% 10%;
 
@@ -52,20 +58,38 @@ section {
     }
 }
 
-section:nth-of-type(2) .products .card{
-    background-color: $red;
-    color: $pal;
+section, #sectiunea1, #sectiunea2, #sectiunea3{
+    width: 100%;
+}
+section:nth-of-type(1){
+    .card{
+        width: 25%; 
+        img.pImage{height: 300px;}
+    }
+}
+
+section:nth-of-type(2){
+    .card{
+        width: 20%; 
+        img.pImage{height: 300px;}
+    }
+    
 }
 
 section:nth-of-type(3) {
-    background-color: $pal;
-
+    background-color: $rose;
     .card{
-        background-color: $pal;
-        margin-bottom: 40px;
-
-        border: 2px solid $red;
-        button {background-color: $red; color: $pal;}
+        // background-color: $rose;
+        width: 18%; 
+        img.pImage{height: 270px;}
     }
+    
+}
+
+.products{ justify-content: center; }
+
+.card{
+    font-size: 30px;
+    .cart{padding: 10px;}
 }
 

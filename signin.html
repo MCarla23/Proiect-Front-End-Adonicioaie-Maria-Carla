@@ -9,19 +9,13 @@
     </head>
     <body>
         <div class="sign" id="signin">
-            <a href="index.html"><img src="images/icons/logoNOB.png" alt="logo" class="logo"> </a>
+            <a href="index.html"><img src="images/icons/logoNOB.png" alt="logo" class="logo" style="left: 10px;"> </a>
             <form class="sign-form">
-                <h1>Sign in</h1>
-                <div>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username">
-                </div>
-                <div>
-                    <label for="parola">Parola :</label>
-                    <input type="password" id="parola" name="parola">
-                </div>
-                <input type="submit" id="submit" name="submit" value="SIGN IN"> 
-                <a href="signup.html" style="color: white; font-style:italic; font-weight:100;"><p>Nu ai cont? Sign up aici. </p></a>
+                <h1 style="color: #ac8748;">Login</h1>
+                <input type="text" id="username" name="Username" placeholder="Username" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
+                <input type="password" id="parola" name="Parola" placeholder="Password" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
+                <input type="submit" id="submit" name="submit" value="SIGN IN" class="disabled" style="color: #ac8748; background-color: #382831; font-size: 18px;">
+                <p style="font-weight:100; font-size: 15px;">Nu ai cont? <a href="signup.html" style="font-weight: bold; color: #ac8748;">Inregistreaza-te aici!</a></p>
             </form>
         </div>
 

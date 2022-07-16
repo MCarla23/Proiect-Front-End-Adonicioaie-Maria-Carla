@@ -8,94 +8,101 @@
         <title>ESC</title>
     </head>
     <body>
-        <header>
-            <nav class="nav-menu">
-                <img src="images/icons/logo.png" style="height: 100px;"/>
-                <ul>
-                    <li><a href="" > <p>Your Cart</p> <img class="icon" src="images/icons/shopcart.png"/> </a></li>
-                    <li><a href="signup.html"> <p>Register</p> <img class="icon" src="images/icons/register.png"/></a></li>
-                    <li><a href="signin.html"> <p>Login</p> <img class="icon" src="images/icons/login.png"/></a></li>
-                </ul>
-            </nav>
+        <div class="body">
+            <header>
+                <nav class="nav-menu">
+                    <img src="images/icons/logoNOB.png" style="height: 100px;"/>
+                    <div>
+                        <ul>
+                            <li><a href="cart.html"> <p>Your Cart</p> <img class="icon" src="images/icons/shopcart.png"/> </a></li>
+                            <li><a href="signup.html"> <p>Register</p> <img class="icon" src="images/icons/register.png"/></a></li>
+                            <li><a href="signin.html"> <p>Login</p> <img class="icon" src="images/icons/login.png"/></a></li>
+                        </ul>
+                        <form action="" class="form" autocomplete="off">
+                            <input type="search" name="search-bar" id="search-bar-mainpage" placeholder="cauta un produs.." onclick="hidePlaceholder(this)" onblur="replaceSearchText(this)"/>
+                        </form>
+                    </div>
 
-            <div class="nav-category"> 
-                <a href="daiana.html"> <p>Daiana's candles</p></a>
-                <a href="raluca.html"> <p>Raluca's baskets</p></a>
-                <a href="antonela.html" > <p>Antonela's crosses</p></a>
-                <a href="mirela.html"> <p>Mmasha Concept</p></a>
-                <a href="doina.html" > <p>Doina's jewerlys</p></a>
-                <a href="carmina.html"> <p>Carmina's paintings</p></a>
-            </div>
-        </header>
- 
-        <div class="hero">
-            <p class="hero-text"> Euro Smart Creativ este o firmă de design personalizat care îți dă ocazia să îți construiești propriile pachete de cadou creative.</p>
-            <br/>
-            <form action="" class="form">
-                <label for="hero-search"><p>Toate produsele prezentate sunt creație autohtonă,</p><p> doar din România, realizate cu multă dăruire </p><p>de către artiști și autori români: </p></label>
+                </nav>
+
+                <div class="nav-category"> 
+                    <a href="daiana.html"> <p>Daiana's candles</p></a>
+                    <a href="raluca.html"> <p>Raluca's baskets</p></a>
+                    <a href="antonela.html" > <p>Antonela's crosses</p></a>
+                    <a href="mirela.html"> <p>Mmasha Concept</p></a>
+                    <a href="doina.html" > <p>Doina's jewerlys</p></a>
+                    <a href="carmina.html"> <p>Carmina's paintings</p></a>
+                </div>
+            </header>
+    
+            <div class="hero">
+                <p class="hero-text"> Euro Smart Creativ este o firmă de design personalizat care îți dă ocazia să îți construiești propriile pachete de cadou creative</p>
                 <br/>
-                <input type="search" name="search-bar" id="search-bar-mainpage" />
-                <input type="submit" name="search-button" id="search-button-submit" value="Caută produs"/> 
-            </form>
-        </div>
-
-        <section>
-            <h1>Raluca's baskets</h1>
-            <h2>Creativity is unique</h2>
-            <div class="products" id="sectiunea1">
+                <p>Toate produsele prezentate sunt creație autohtonă, doar din România, realizate cu multă dăruire de către artiști și autori români </p>
             </div>
-        </section>
 
-        <div class="hero small-hero">
-            <p>Pachete creative pentru fiecare sarbatoare mentin atmosfera pentru toata familia.</p>
-            <p>Alege pachetul potrivit pentru tine, punandu-l in cosul de cumparaturi!</p>
-        </div>
-        <section>
-            <h1>Mmasha Concept</h1>
-            <h2>Elegance is good taste</h2>
-            <div class="products" id="sectiunea2">
+            <section>
+                <h1>Raluca's baskets</h1>
+                <h2>Creativity is unique</h2>
+                <!-- <div style="display: flex;"> -->
+                    <!-- <div><img class='arrowSvg' src="images/icons/chevron-left.svg" alt="arrow"></div> -->
+                    <div class="products" id="sectiunea1"></div>
+                    <!-- <div><img class='arrowSvg' src="images/icons/chevron-right.svg" alt="arrow"></div> -->
+                <!-- </div> -->
+
+            </section>
+
+            <div class="hero small-hero">
+                <p>Pachete creative pentru fiecare sarbatoare mentin atmosfera pentru toata familia.</p>
+                <p>Alege pachetul potrivit pentru tine, punandu-l in cosul de cumparaturi!</p>
             </div>
-        </section>
+            <section>
+                <h1>Mmasha Concept</h1>
+                <h2>Elegance is good taste</h2>
+                <div class="products" id="sectiunea2">
+                </div>
+            </section>
 
-        <section>
-            <h1>Daiana's Candles and Antonela's crosses</h1>
-            <h2>Through good and bad</h2>
-            <div class="products" id="sectiunea3">
+            <section>
+                <h1>Daiana's Candles and Antonela's crosses</h1>
+                <h2>Through good and bad</h2>
+                <div class="products" id="sectiunea3">
+                </div>
+            </section>
+
+            <div class="ad">
+                <p>Start your free trial today. Cancel or upgrade anytime.</p>
+                <a href="signup.html"><button class="add-button">Button</button></a>
             </div>
-        </section>
 
-        <div class="ad">
-            <p>Start your free trial today. Cancel or upgrade anytime.</p>
-            <button>Button</button>
+            <footer>
+                <ul>
+                    <li>The Footer</li>
+                    <li>2022 The Website, Inc.</li>
+                </ul>
+                <ul>
+                    <li>ABOUT</li>
+                    <li>Team</li>
+                    <li>Jobs</li>
+                    <li>Blog</li>
+                    <li>Press</li>
+                </ul>
+                <ul>
+                    <li>HELP</li>
+                    <li>FAQ</li>
+                    <li>Security</li>
+                    <li>Terms of Service</li>
+                    <li>Privacy Policy</li>
+                </ul>
+                <ul>
+                    <li>CONNECT</li>
+                    <li><img class="icon" src="images/icons/facebook.png"/><p>Facebook</p></li>
+                    <li><img class="icon" src="images/icons/youtube.png"/><p>Youtube</p></li>
+                    <li><img class="icon" src="images/icons/twitter.png"/><p>Twitter</p></li>
+                    <li><img class="icon"src="images/icons/instagram.png"/><p>Instagram</p></li>
+                </ul>
+            </footer>
         </div>
-
-        <footer>
-            <ul>
-                <li>The Footer</li>
-                <li>2022 The Website, Inc.</li>
-            </ul>
-            <ul>
-                <li>ABOUT</li>
-                <li>Team</li>
-                <li>Jobs</li>
-                <li>Blog</li>
-                <li>Press</li>
-            </ul>
-            <ul>
-                <li>HELP</li>
-                <li>FAQ</li>
-                <li>Security</li>
-                <li>Terms of Service</li>
-                <li>Privacy Policy</li>
-            </ul>
-            <ul>
-                <li>CONNECT</li>
-                <li><img class="icon" src="images/icons/facebook.png"/><p>Facebook</p></li>
-                <li><img class="icon" src="images/icons/youtube.png"/><p>Youtube</p></li>
-                <li><img class="icon" src="images/icons/twitter.png"/><p>Twitter</p></li>
-                <li><img class="icon"src="images/icons/instagram.png"/><p>Instagram</p></li>
-            </ul>
-        </footer>
         <script src="global.js" type="text/javascript"></script>
         <script src="index.js" type="text/javascript"></script>
     </body>

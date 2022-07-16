@@ -3,7 +3,6 @@ let candlesPerPage;
 let currentPage = 1;
 
 function reloadFunctions(tip){
-    console.log('am intrat daiana');
     document.querySelector('#candles-products').innerHTML = '';
     if(tip == -1) {
         candlesPerPage = document.getElementById('nrPerPageCandles1').value;
@@ -16,11 +15,11 @@ function reloadFunctions(tip){
         addCards(vectorCandles,0,"#candles-products", candlesPerPage, 0);
     }
     else if(tip == -3){
-        vectorCandles = vectorProduse.filter(dinCategorie, 'raluca');
+        vectorCandles = vectorProduse.filter(dinCategorie, 'daiana');
         addCards(vectorCandles,0,"#candles-products", candlesPerPage, 0);
     }
     else if(tip == -4){
-        vectorCandles = vectorProduse.filter(dinCategorie, 'raluca').reverse();
+        vectorCandles = vectorProduse.filter(dinCategorie, 'daiana').reverse();
         addCards(vectorCandles,0,"#candles-products", candlesPerPage, 0);
     }
     else if(tip == -5){
@@ -38,3 +37,17 @@ function reloadFunctions(tip){
     makeShowResults(vectorCandles.length, candlesPerPage);
 }
 reloadFunctions(-1);
+
+// function numberInput(event){
+//     document.querySelector('#candles-products').innerHTML = '';
+//     if(event.target.value){
+//         vectorCandles = vectorProduse.filter(dinCategorie, 'daiana').filter(function (vector){
+//         return (vector.detalii.includes(event.target.value) || vector.pret.includes(event.target.value) || vector.nume.includes(event.target.value));
+//         });
+//     }
+//     else{
+//         vectorCandles = vectorProduse.filter(dinCategorie, 'daiana')
+//     }
+//     addCards(vectorCandles,0,"#candles-products", candlesPerPage, 0);
+//     makeShowResults(vectorCandles.length, candlesPerPage);
+// }

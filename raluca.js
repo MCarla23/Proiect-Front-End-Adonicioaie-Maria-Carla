@@ -41,4 +41,3 @@ function reloadFunctions(tip){
     makeShowResults(vectorBaskets.length, basketsPerPage);
 }
 reloadFunctions(-1);
-

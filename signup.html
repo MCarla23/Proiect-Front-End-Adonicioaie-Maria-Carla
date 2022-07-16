@@ -9,35 +9,17 @@
     </head>
     <body>
         <div class="sign">
-            <a href="index.html"><img src="images/icons/logoNOB.png" alt="logo" class="logo"> </a>
+            <a href="index.html"><img src="images/icons/logoNOB.png" alt="logo" class="logo" style="left: 10px;"> </a>
             <form class="sign-form">
-                <h1>Sign up</h1>
-                <div>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username">
-                </div>
-                <div>
-                    <label for="nume">Nume :</label>
-                    <input type="text" id="nume" name="nume">
-                </div>
-                <div>
-                    <label for="prenume">Prenume:</label>
-                    <input type="text" id="prenume" name="prenume">
-                </div>
-                <div>
-                    <label for="oras">Orasul :</label>
-                    <input type="text" id="oras" name="oras">
-                </div>
-                <div>
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" name="email">
-                </div>
-                <div>
-                    <label for="parola">Parola :</label>
-                    <input type="password" id="parola" name="parola">
-                </div>
-                <input type="submit" id="submit" name="submit" value="SIGN UP">
-                <a href="signin.html" style="color: white; font-style:italic; font-weight:100;"><p>Ai deja un cont? Logheaza-te! </p></a>
+                <h1 style="color: #ac8748;">Register</h1>
+                <input type="text" id="username" name="Username" placeholder="Username" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
+                <input type="text" id="nume" name="Nume" placeholder="Nume" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
+                <input type="text" id="prenume" name="Prenume" placeholder="Prenume" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
+                <input type="text" id="oras" name="Oras" placeholder="Oras" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
+                <input type="email" id="email" name="Email" placeholder="Email" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
+                <input type="password" id="parola" name="Parola" placeholder="Parola" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
+                <input type="submit" id="submit" name="submit" value="SIGN UP" class="disabled" style="color: #ac8748; background-color: #382831; font-size: 18px;">
+                <p style="font-weight:100; font-size: 15px;">Ai deja un cont? <a href="signin.html" style="font-weight: bold; color: #ac8748;">Logheaza-te!</a></p>
             </form>
         </div>
 

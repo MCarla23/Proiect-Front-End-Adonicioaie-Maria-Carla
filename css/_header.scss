@@ -3,39 +3,54 @@ header{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-left: 20px;
-        padding-right: 30px;
+        padding: 10px 30px;
 
+        background-image: linear-gradient(
+            rgba(123, 94, 94, 0.507),
+            rgba(48, 13, 13, 0.618)
+          ),
+          url("../images/hero/back2.jpg");
+        background-size: cover;
         background-color: $red;
         font-weight: 500;
         font-size: 23px;
-        font-family: 'Crimson Text', serif;
+        font-family: 'Arima', cursive;
 
-        ul{
-            display: flex;
-            gap: 100px;
-            li > a{
+        > div{
+            form{ text-align: right; margin-bottom: 20px;}
+
+            ul{
                 display: flex;
-                align-items: center;
-                gap: 10px;
-                color: $white;
-                padding: 6px;
+                gap: 100px;
+                margin: 0;
+                
+                li > a{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    color: white;
+                    padding: 6px 0;
+                    margin: 10px 0;
 
-                &:hover{
-                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                    border-radius: 4px;
-                    background-color: $pal;
+                    p { margin: 0;}
+
+                    &:hover{
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        border-radius: 4px;
+                        background-color: $pal;
+                    }
                 }
+                
             }
-            
         }
+        
     }
     .nav-category{
         display: flex;
         justify-content: space-around;
         align-items: center;
         height: 80px;
-        border-bottom: 1px solid $pal;
+        border-bottom: 1px solid $red;
         a{
             color: $red; 
             font-weight: bold; 

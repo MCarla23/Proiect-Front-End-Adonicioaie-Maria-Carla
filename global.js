@@ -1,16 +1,21 @@
 let vectorProduse = [];
+let vectorCart = [];
 let idProdus = 0;
 let apasatPeDetalii = 0;
-let produsApasat;
-let hannah = 7;
+let idProdusApasat;
 
-
-function numberInput(event){
-    console.log(event.target.value.length);
+function hidePlaceholder(input){
+    input.setAttribute('placeholder','');
 }
 
-if(document.querySelector('input[name="search-bar"]'))
-    document.querySelector('input[name="search-bar"]').addEventListener('input', numberInput);
+function rePlaceholder(input){
+    if(input.getAttribute('placeholder') == '')
+        input.setAttribute('placeholder',input.getAttribute('name'));
+}
+function replaceSearchText(input){
+    if(input.getAttribute('placeholder') == '')
+        input.setAttribute('placeholder', 'cauta un produs..');
+}
 
 function addEventToPrice(event){
     event.target.setAttribute('onclick', `reloadFunctions(${event.target.value-2})`);
@@ -19,7 +24,7 @@ function addEventToPrice(event){
 if(document.querySelector('#price'))
     document.querySelector('#price').addEventListener('change', addEventToPrice);
 
-function adaugaProdus(numeProdus, categorieProdus, pretProdus, detaliiProdus, link){
+function adaugaProdus(numeProdus, categorieProdus, pretProdus, detaliiProdus, link, ocazie, gen){
     idProdus++;
     let obiect = {
         id: 'produs_'+ categorieProdus + '_' + idProdus,
@@ -27,9 +32,54 @@ function adaugaProdus(numeProdus, categorieProdus, pretProdus, detaliiProdus, li
         categorie: categorieProdus,
         pret: pretProdus,
         imagine: link,
-        detalii: detaliiProdus
+        detalii: detaliiProdus,
+        gen: gen,
+        ocazie: ocazie
     };
     vectorProduse.push(obiect);
+}
+
+function incRaluca(){
+    ralucaCardsNr=ralucaCardsNr+3; 
+    if(ralucaCardsNr >= vectorProduse.filter(dinCategorie, 'raluca').length)
+        ralucaCardsNr = ralucaCardsNr % vectorProduse.filter(dinCategorie, 'raluca').length;
+    document.getElementById('sectiunea1').innerHTML = '';
+    addCards(vectorProduse.filter(dinCategorie, 'raluca'),ralucaCardsNr,"#sectiunea1", 3, 1);
+}
+function decRaluca(){
+    if(vectorProduse.filter(dinCategorie, 'mirela').length > 3)
+        ralucaCardsNr=ralucaCardsNr-3; 
+    else ralucaCardsNr --;
+    if(ralucaCardsNr < 0)
+        ralucaCardsNr = ralucaCardsNr + vectorProduse.filter(dinCategorie, 'raluca').length;
+    document.getElementById('sectiunea1').innerHTML = '';
+    addCards(vectorProduse.filter(dinCategorie, 'raluca'),ralucaCardsNr,"#sectiunea1", 3, 1);
+}
+function incMirela(){
+    mirelaCardsNr=mirelaCardsNr+4; 
+    if(mirelaCardsNr >= vectorProduse.filter(dinCategorie, 'mirela').length)
+        mirelaCardsNr = mirelaCardsNr % vectorProduse.filter(dinCategorie, 'mirela').length;
+    document.getElementById('sectiunea2').innerHTML = '';
+    addCards(vectorProduse.filter(dinCategorie, 'mirela'),mirelaCardsNr,"#sectiunea2", 4, 1);
+}
+function decMirela(){
+    if(vectorProduse.filter(dinCategorie, 'mirela').length > 4)
+        mirelaCardsNr=mirelaCardsNr-4; 
+    else mirelaCardsNr--;
+    if(mirelaCardsNr < 0)
+        mirelaCardsNr = mirelaCardsNr + vectorProduse.filter(dinCategorie, 'mirela').length;
+    document.getElementById('sectiunea2').innerHTML = '';
+    addCards(vectorProduse.filter(dinCategorie, 'mirela'),mirelaCardsNr,"#sectiunea2", 4, 1);
+}
+
+function addSingleCard(produs,location){
+    const div=document.createElement('div');
+    div.className = 'card';
+    div.innerHTML = `<div class='pContainer'> <img class='pImage' src='images/products/${produs.imagine}' /> <div class='pDetalii'> <div class='detalii' id='name-${produs.id}' onclick='goToProdusPage(this.id)'>Detalii</div> </div> </div>`;
+    div.innerHTML +=`<p class='card-name'>${produs.nume}</p>`;
+    div.innerHTML += `<div class='cantitate'><p class='cartPrice'>${produs.pret} lei</p><div><button class='numberbox'>-</button><input type='number' placeholder='1' min='1'/><button class='numberbox'>+</button></div></div>`;
+    div.innerHTML += `<div class='cart'><img class='cartImage' src='images/icons/cart.png' id='btn-${produs.id}' onclick='addToCart(this.id)'/></div>`;
+    document.querySelector(location).appendChild(div);
 }
 
 function addCards(vector, indiceVector, location, length, arrow){
@@ -38,8 +88,12 @@ function addCards(vector, indiceVector, location, length, arrow){
     if(arrow === 1 )
     {
         const img = document.createElement('img');
-        img.className='arrow arrowInapoi';
-        img.src = 'images/icons/ar_left.png';
+        img.className='arrow';
+        if(location == '#sectiunea1')
+            img.setAttribute('onclick','decRaluca()');
+        else if(location == '#sectiunea2')
+            img.setAttribute('onclick','decMirela()');
+        img.src = 'images/icons/chevron-left.svg';
         img.alt = 'Arrow';
         document.querySelector(location).appendChild(img);
     }
@@ -48,21 +102,23 @@ function addCards(vector, indiceVector, location, length, arrow){
 
     let indice = indiceVector;
     for(let i=1; i<=length; i++){
-        let produs = vector[indice];
-        const div=document.createElement('div');
-        div.className='card';
-        div.innerHTML=`<img src="images/products/${produs.imagine}" /><p>${produs.nume}, pret: ${produs.pret} lei</p><button onclick="readDetalii(event)" produs-id="${produs.id}">Detalii</button>`;
-        document.querySelector(location).appendChild(div);
+        addSingleCard(vector[indice],location);
         indice++;
-        if(indice === vector.length)
-            i = length+1;
+        if(indice === vector.length){
+            if(arrow === 1) indice = 0;
+            else i = length+1;
+        }
     }
 
     if(arrow === 1 )
     {
         const img = document.createElement('img');
-        img.className='arrow arrowInainte';
-        img.src = 'images/icons/ar_right.png';
+        img.className='arrow';
+        if(location == '#sectiunea1')
+            img.setAttribute('onclick','incRaluca()');
+        else if(location == '#sectiunea2')
+            img.setAttribute('onclick','incMirela()');
+        img.src = 'images/icons/chevron-right.svg';
         img.alt = 'Arrow';
         document.querySelector(location).appendChild(img);
     }
@@ -87,7 +143,7 @@ function readDetalii(event){
 }
 
 function makeShowResults(total, nrPerPage){
-    document.getElementById('browsing-title').innerHTML = `<u>Browsing products - ${total} results</u>`;
+    document.getElementById('browsing-title').innerHTML = `Browsing products - ${total} results`;
     document.getElementsByClassName('showingResults')[0].innerHTML = '';
     let nrPages = parseInt(total/nrPerPage) + 1 - (currentPage-1);
     let p = document.createElement('p');
@@ -103,7 +159,6 @@ function makeShowResults(total, nrPerPage){
             div.className = 'numberBox';
             div.innerHTML = i;
             div.setAttribute('onclick',`reloadFunctions(${i})`);
-            console.log(div);
             document.getElementsByClassName('showingResults')[0].appendChild(div);
         } 
     }
@@ -113,7 +168,6 @@ function makeShowResults(total, nrPerPage){
             div1.className = 'numberBox arrowLeft';
             div1.addEventListener('click', function () {
                 currentPage = currentPage - 1; 
-                console.log(currentPage);
                 reloadFunctions(currentPage);
             });
             document.getElementsByClassName('showingResults')[0].appendChild(div1);
@@ -124,7 +178,6 @@ function makeShowResults(total, nrPerPage){
             div.className = 'numberBox';
             div.innerHTML = i;
             div.setAttribute('onclick',`reloadFunctions(${i})`);
-            console.log(div);
             document.getElementsByClassName('showingResults')[0].appendChild(div);
         } 
     }
@@ -134,7 +187,6 @@ function makeShowResults(total, nrPerPage){
             div1.className = 'numberBox';
             div1.addEventListener('click', function () {
                 currentPage = currentPage - 1; 
-                console.log(currentPage);
                 reloadFunctions(currentPage);
             });
             document.getElementsByClassName('showingResults')[0].appendChild(div1);
@@ -177,38 +229,99 @@ function makeShowResults(total, nrPerPage){
     
 }
 
-adaugaProdus('Cos 1 de Craciun', 'raluca', '45','Decoratiune de Craciun cu lumanare', 'cos1.jpg');
-adaugaProdus('Cos 2 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'cos2.jpeg');
-adaugaProdus('Cos 3 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'cos3.jpg');
-adaugaProdus('Cos 4 de Ieri', 'raluca', '105','Decoratiune de Paste cu lumanare', 'cos4.jpeg');
-adaugaProdus('Cos 5 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'cos5.jpeg');
-adaugaProdus('Cos 6 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'basket6.jpeg');
-adaugaProdus('Cos 7 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'cos7.jpg');
-adaugaProdus('Cos 8 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'cos8.jpg');
-adaugaProdus('Cos 9 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'cos9.jpg');
-adaugaProdus('Cos 10 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'cos10.png');
-adaugaProdus('Cos 11 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'basket7.jpeg');
-adaugaProdus('Cos 12 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'basket6.jpeg');
-adaugaProdus('Cos 13 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'basket7.jpeg');
-adaugaProdus('Cos 14 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'basket7.jpeg');
-adaugaProdus('Cos 15 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'basket6.jpeg');
-adaugaProdus('Cos 16 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'basket7.jpeg');
-adaugaProdus('Cos 17 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'basket6.jpeg');
-adaugaProdus('Cos 18 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'basket7.jpeg');
-adaugaProdus('Cos 19 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'basket6.jpeg');
-adaugaProdus('Cos 20 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'basket7.jpeg');
-adaugaProdus('Cos 21 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'basket6.jpeg');
-adaugaProdus('Cos 22 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'basket7.jpeg');
+
+function deleteConfirmare(){
+    document.body.getElementsByTagName('aside')[0].remove();
+}
+
+function addToCart(idButtonClickuit){
+    let vectorProduseCart = [];
+    let idProdus = idButtonClickuit.split('-')[1];
+    let produseAnterioare = localStorage.getItem('Cart');
+    let produs = vectorProduse.find((elem) => idProdus == elem.id);
+
+    if(produseAnterioare)
+        vectorProduseCart = JSON.parse(produseAnterioare);
+    
+    let aparitie = vectorProduseCart.find((elem) => idProdus == elem.id)
+    let confirmare = document.createElement('aside');
+
+    if(aparitie != undefined) {
+        confirmare.innerHTML = 'Acest produs exista deja in cos.';
+    }
+    else{
+        vectorProduseCart.push(produs);
+        localStorage.setItem('Cart', JSON.stringify(vectorProduseCart));
+        confirmare.innerHTML = 'Produsul dumneavoastra a fost adaugat in cos.';
+    }        
+    document.body.appendChild(confirmare);
+    setTimeout(deleteConfirmare, 2000);
+    
+}
+
+function goToProdusPage(clickid){
+    localStorage.setItem('clickuit',clickid);
+    if(apasatPeDetalii !== 1)
+        window.location.href = "produs.html";
+    apasatPeDetalii = 0;
+}
+
+function goToAllProductsPage(event){
+    localStorage.setItem('valSearch', event.target.value);
+    window.location.href = "allProducts.html";
+}
+
+if(document.querySelector('input[name="search-bar"]'))
+    document.querySelector('input[name="search-bar"]').addEventListener('input', goToAllProductsPage);
+
+adaugaProdus('Cos 1 de Craciun', 'raluca', '45','Decoratiune de Craciun cu lumanare', 'cos1.jpg', 'neutru', 'craciun');
+adaugaProdus('Cos 2 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'cos2.jpeg', 'masculin', 'paste');
+adaugaProdus('Cos 3 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'cos3.jpg', 'neutru', 'nicolae');
+adaugaProdus('Cos 4 de Ieri', 'raluca', '105','Decoratiune de Paste cu lumanare', 'cos4.jpeg', 'neutru', 'cadou');
+adaugaProdus('Cos 5 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'cos5.jpeg', 'masculin', 'nicolae');
+adaugaProdus('Cos 6 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'basket6.jpeg','masculin', 'nicolae');
+adaugaProdus('Cos 7 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'cos7.jpg','masculin', 'nicolae');
+adaugaProdus('Cos 8 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'cos8.jpg','masculin', 'nicolae');
+adaugaProdus('Cos 9 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'cos9.jpg','masculin', 'nicolae');
+adaugaProdus('Cos 10 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'cos10.png','masculin', 'nicolae');
+adaugaProdus('Cos 11 de Nicolae', 'raluca', '65','Decoratiune de Craciun cu lumanare', 'basket7.jpeg','masculin', 'nicolae');
+adaugaProdus('Cos 12 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'basket6.jpeg','masculin', 'nicolae');
+adaugaProdus('Cos 13 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'basket7.jpeg','masculin', 'nicolae');
+adaugaProdus('Cos 14 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'basket7.jpeg','masculin', 'nicolae');
+adaugaProdus('Cos 15 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'basket6.jpeg','masculin', 'nicolae');
+adaugaProdus('Cos 16 de Nicolae', 'raluca', '65','Decoratiune de Craciun cu lumanare', 'basket7.jpeg','masculin', 'nicolae');
+adaugaProdus('Cos 17 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'basket6.jpeg','masculin', 'nicolae');
+adaugaProdus('Cos 18 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'basket7.jpeg','masculin', 'nicolae');
+adaugaProdus('Cos 19 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'basket6.jpeg','masculin', 'nicolae');
+adaugaProdus('Cos 20 de Nicolae', 'raluca', '65','Decoratiune de Paste cu lumanare', 'basket7.jpeg','masculin', 'nicolae');
+adaugaProdus('Cos 21 de Paste', 'raluca', '60','Decoratiune de Paste cu lumanare', 'basket6.jpeg','masculin', 'nicolae');
+adaugaProdus('Cos 22 de Nicolae', 'raluca', '65','Decoratiune de Craciun cu lumanare', 'basket7.jpeg','masculin', 'nicolae');
 
 
-adaugaProdus('Lumanare 1', 'daiana', '95','Decoratiune de Paste cu lumanare', 'candle1.jpg');
-adaugaProdus('Lumanare 2', 'daiana', '95','Decoratiune de Paste cu lumanare', 'candle2.jpg');
-adaugaProdus('Lumanare 3', 'daiana', '95','Decoratiune de Paste cu lumanare', 'candle3.jpg');
-adaugaProdus('Lumanare 4', 'daiana', '95','Decoratiune de Paste cu lumanare', 'candle4.jpg');
-adaugaProdus('Lumanare 5', 'daiana', '95','Decoratiune de Paste cu lumanare', 'candle5.jpg');
-adaugaProdus('Lumanare 6', 'daiana', '95','Decoratiune de Paste cu lumanare', 'candle6.jpg');
-adaugaProdus('Lumanare 7', 'daiana', '95','Decoratiune de Paste cu lumanare', 'lant5.jpg');
-adaugaProdus('Lumanare 8', 'daiana', '95','Decoratiune de Paste cu lumanare', 'lant5.jpg');
+adaugaProdus('Lumanare 1', 'daiana', '95','Decoratiune de1 Paste cu lumanare', 'candle1.jpg');
+adaugaProdus('Lumanare 2', 'daiana', '85','Decoratiune de2 Paste cu lumanare', 'candle2.jpg');
+adaugaProdus('Lumanare 3', 'daiana', '75','Lumânarea parfumată Bath & Body Works Vanilla Bean umple casa cu o aromă minunată, creând astfel o atmosferă confortabilă, unde te simți întotdeauna excelent. Caracteristici: aromă dulce, parfum gurmand, ambalaj luxos, ideal de oferit cadou, un accesoriu decorativ de lux, pentru orice încăpere Lumânarea se plasează pe o suprafață rezistentă la căldură. Nu se lasă să ardă mai mult de 4 ore. Lumânarea aprinsă nu se lasă niciodată să ardă până la capăt, nesupravegheată și în apropierea obiectelor ușor inflamabile. A nu se lăsa la îndemâna copiilor și a animalelor de companie. Lăsați lumânarea să ardă, cel puțin până când se topește tot stratul superior. Preveniți astfel formarea unor adâncituri nedorite în suprafața de ceară. Pentru o ardere optimă, recomandăm scurtarea regulată a fitilului la lungimea recomandată.', 'candle3.jpg');
+adaugaProdus('Lumanare 4', 'daiana', '65','Decoratiune de4 Paste cu lumanare', 'candle4.jpg');
+adaugaProdus('Lumanare 5', 'daiana', '55','Decoratiune de5 Paste cu lumanare', 'candle5.jpg');
+adaugaProdus('Lumanare 6', 'daiana', '45','Decoratiune de6 Paste cu lumanare', 'candle6.jpg');
+adaugaProdus('Lumanare 7', 'daiana', '35','Decoratiune de7 Paste cu lumanare', 'lant5.jpg');
+adaugaProdus('Lumanare 8', 'daiana', '25','Decoratiune de8 Paste cu lumanare', 'lant5.jpg');
+adaugaProdus('Lumanare 1', 'daiana', '15','Decoratiune de9 Paste cu lumanare', 'candle1.jpg');
+adaugaProdus('Lumanare 2', 'daiana', '95','Decoratiune de10 Paste cu lumanare', 'candle2.jpg');
+adaugaProdus('Lumanare 3', 'daiana', '85','Decoratiune de11 Paste cu lumanare', 'candle3.jpg');
+adaugaProdus('Lumanare 4', 'daiana', '75','Decoratiune de12 Paste cu lumanare', 'candle4.jpg');
+adaugaProdus('Lumanare 5', 'daiana', '65','Decoratiune de13 Paste cu lumanare', 'candle5.jpg');
+adaugaProdus('Lumanare 6', 'daiana', '55','Decoratiune de14 Paste cu lumanare', 'candle6.jpg');
+adaugaProdus('Lumanare 7', 'daiana', '45','Decoratiune de15 Paste cu lumanare', 'lant5.jpg');
+adaugaProdus('Lumanare 8', 'daiana', '35','Decoratiune de16 Paste cu lumanare', 'lant5.jpg');
+adaugaProdus('Lumanare 1', 'daiana', '25','Decoratiune de17 Paste cu lumanare', 'candle1.jpg');
+adaugaProdus('Lumanare 2', 'daiana', '15','Decoratiune de18 Paste cu lumanare', 'candle2.jpg');
+adaugaProdus('Lumanare 3', 'daiana', '95','Decoratiune de19 Paste cu lumanare', 'candle3.jpg');
+adaugaProdus('Lumanare 4', 'daiana', '95','Decoratiune de20 Paste cu lumanare', 'candle4.jpg');
+adaugaProdus('Lumanare 5', 'daiana', '95','Decoratiune de21 Paste cu lumanare', 'candle5.jpg');
+adaugaProdus('Lumanare 6', 'daiana', '95','Decoratiune de22 Paste cu lumanare', 'candle6.jpg');
+adaugaProdus('Lumanare 7', 'daiana', '95','Decoratiune de23 Paste cu lumanare', 'lant5.jpg');
+adaugaProdus('Lumanare 8', 'daiana', '95','Decoratiune de24 Paste cu lumanare', 'lant5.jpg');
 
 adaugaProdus('Cruce 1', 'antonela', '35','Decoratiune de Paste cu lumanare', 'cruce1.jpg');
 adaugaProdus('Cruce 2', 'antonela', '45','Decoratiune de Paste cu lumanare', 'cruce2.jpg');
@@ -218,6 +331,33 @@ adaugaProdus('Cruce 5', 'antonela', '35','Decoratiune de Paste cu lumanare', 'cr
 adaugaProdus('Cruce 6', 'antonela', '35','Decoratiune de Paste cu lumanare', 'lent.jpg');
 adaugaProdus('Cruce 7', 'antonela', '35','Decoratiune de Paste cu lumanare', 'lant4.jpg');
 
-adaugaProdus('Palarie 1', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie1.png');
-adaugaProdus('Palarie 2', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie2.png');
-adaugaProdus('Palarie 3', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie3.png');
+// adaugaProdus('Palarie 1', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie1.png');
+// adaugaProdus('Palarie 2', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie2.png');
+// adaugaProdus('Palarie 3', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie3.png');
+
+adaugaProdus('Palarie 5', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie5.jpg');
+adaugaProdus('Palarie 6', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie6.jpg');
+adaugaProdus('Palarie 7', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie7.jpg');
+adaugaProdus('Palarie 8', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie8.jpg');
+
+adaugaProdus('Palarie 9', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie9.jpg');
+adaugaProdus('Palarie 11', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie11.jpg');
+adaugaProdus('Palarie 12', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie12.jpg');
+adaugaProdus('Palarie 13', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie13.jpg');
+
+adaugaProdus('Palarie 17', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie17.jpg');
+adaugaProdus('Palarie 10', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie10.jpg');
+adaugaProdus('Palarie 14', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie14.jpg');
+adaugaProdus('Palarie 15', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie15.jpg');
+
+adaugaProdus('Palarie 16', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie16.jpg');
+adaugaProdus('Palarie 18', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie18.jpg');
+adaugaProdus('Palarie 24', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie24.jpg');
+adaugaProdus('Palarie 26', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie26.jpg');
+
+adaugaProdus('Palarie 19', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie19.jpg');
+adaugaProdus('Palarie 22', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie22.jpg');
+adaugaProdus('Palarie 21', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie21.jpg');
+adaugaProdus('Palarie 20', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie20.jpg');
+// adaugaProdus('Palarie 23', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie23.jpg');
+// adaugaProdus('Palarie 25', 'mirela', '35','Decoratiune de Paste cu lumanare', 'palarie25.jpg');
