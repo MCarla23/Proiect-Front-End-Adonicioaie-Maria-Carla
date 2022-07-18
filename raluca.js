@@ -2,6 +2,11 @@ let vectorBaskets = vectorProduse.filter(dinCategorie, 'raluca');
 let basketsPerPage;
 let currentPage = 1;
 
+let userulEsteLogat = localStorage.getItem('logat');
+if(userulEsteLogat == 1)
+    createHeaderWithUser('raluca-navbar');
+else createHeaderWithoutUser('raluca-navbar');
+
 function reloadFunctions(tip){
     document.querySelector('#baskets-products').innerHTML = '';
     if(tip == -1) {

@@ -1,0 +1,20 @@
+button, input, select{
+    font-size: 20px;
+    border: 1px;
+    background-color: $cioco;
+    color: $beige;
+    font-family: 'Poppins', sans-serif;
+    padding: 3px;
+    border-radius: 3px;
+}
+label{ color: $cioco; font-weight: 500;}
+
+form.sign-form input[type='submit']{
+    color: #ac8748; 
+    background-color: $cioco; 
+    font-size: 18px;
+
+    &:hover{
+        cursor: pointer;
+    }
+}

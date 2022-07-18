@@ -1,9 +1,10 @@
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
 @import 'colors';
-@import 'sizing&fonts';
-@import 'global';
 @import 'header';
 @import 'footer';
+@import 'general';
 @import 'cards';
-@import 'form';
-@import 'filter';
-@import 'products';
+@import 'button&input';
+@import 'form&filter';
+@import 'meniu';

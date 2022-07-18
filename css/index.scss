@@ -1,95 +1,159 @@
 @import 'all';
 
-.hero {
+.cover{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 5% 18%;
     width: 100%;
-    margin: 0 auto;
-    color: $pal;
-    // linear-gradient(
-    //     rgba(99, 71, 71, 0.507),
-    //     rgba(48, 13, 13, 0.618)
-    //   ),
-    background-image: 
-    linear-gradient(
-        rgba(10, 5, 5, 0.72),
-        rgba(1, 0, 0, 0.699)
-      ),
-      url("../images/hero/wall.jpg");
-      
-    background-size: cover;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    font-size: 35px;
-    font-family: 'Arima', cursive;
-    font-weight: 500;
-    p{margin: 0;}
-}
-
-.small-hero{
-    height: 200px;
-    width: 100%;
-    padding: 0;
+    height: 800px;
     background-image: linear-gradient(
-        rgba(123, 94, 94, 0.507),
-        rgba(48, 13, 13, 0.618)
-      ),
-      url("../images/hero/back2.jpg");
-    background-size: contain;
-    color: white;
-    border-top: 1px solid $red;
-    border-bottom: 1px solid $red;
+        rgba(10, 5, 5, 0.621),
+        rgba(1, 0, 0, 0.617)
+      ), url('../images/cover.jpg');
+    background-size: cover;
+    padding-bottom: 50px;
+
+    .cover-text{
+        padding: 0 100px;
+        font-size: 35px; 
+        margin: 30px;
+        color: $beige; 
+        text-align: center;
+    }
 }
 
-section {
+.button {
+    background-color: #c3a69d24;
+    color: #f5cabec7;
+    padding: 18px;
+    border: 1px;
+    border-radius: 7px;
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    // box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19) inset;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+
+    &:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19) inset;
+        background-color: $cream_op;
+        color: $beige;
+        cursor: pointer;
+    }
+
+    &.mai-multe{
+        background-color: $cioco;
+        color: $beige;
+        margin-bottom: 30px;
+
+        &:hover{
+            background-color: $mocha_op;
+            color: $cioco;
+            font-weight: bold;
+        }
+    }
+}
+
+.poza{
+    width: 100%;
+    height: 200px;
+    background-image: linear-gradient(
+        rgba(10, 5, 5, 0.621),
+        rgba(1, 0, 0, 0.617)
+      ),url('../images/back.jpg');
+    background-size: contain;
+}
+
+.main-content{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3% 10% 5% 10%;
+    padding: 0 100px;
 
-    > *{margin: 0;}
-
-    > :nth-child(2){
-        margin-bottom: 2%;
-        font-weight: 80; 
+    #sectiunea1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
     }
 }
 
-section, #sectiunea1, #sectiunea2, #sectiunea3{
-    width: 100%;
-}
-section:nth-of-type(1){
-    .card{
-        width: 25%; 
-        img.pImage{height: 300px;}
-    }
+.despre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 30px 0;
 }
 
-section:nth-of-type(2){
-    .card{
-        width: 20%; 
-        img.pImage{height: 300px;}
-    }
-    
-}
+.echipa{
 
-section:nth-of-type(3) {
-    background-color: $rose;
-    .card{
-        // background-color: $rose;
-        width: 18%; 
-        img.pImage{height: 270px;}
+    img{
+        width: 100%;
+        filter: grayscale(30%);
+    }
+
+    .row{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 100%;
     }
     
+    .person-card {
+        width: 30%;
+        margin: 0 0 0 16px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .container {
+        padding: 0 16px;
+
+        &::after, .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    }
+    
+    .title {
+        color: grey;
+    }
+    
+    .button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: $cioco;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+    }
+    
+    .button:hover {
+        background-color: #555;
+    }
 }
 
-.products{ justify-content: center; }
-
-.card{
-    font-size: 30px;
-    .cart{padding: 10px;}
+.locatie{
+    h1{margin: 30px 0 10px 0;}
+    h2{margin: 2px;}
+    h3{margin: 2px; margin-bottom: 20px;}
+    div {width: 80%;}
+    img{
+        border: 3px solid $cioco;
+        border-radius: 3px;
+        box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+    }
 }
 
+@media (max-width: 1000px) {
+    .echipa .person-card {
+        width: 100%;
+        border: 3px solid $cioco;
+        border-radius: 3px;
+    }
+}

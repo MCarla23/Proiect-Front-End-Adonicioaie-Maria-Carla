@@ -9,99 +9,158 @@
     </head>
     <body>
         <div class="body">
-            <header>
-                <nav class="nav-menu">
-                    <img src="images/icons/logoNOB.png" style="height: 100px;"/>
-                    <div>
-                        <ul>
-                            <li><a href="cart.html"> <p>Your Cart</p> <img class="icon" src="images/icons/shopcart.png"/> </a></li>
-                            <li><a href="signup.html"> <p>Register</p> <img class="icon" src="images/icons/register.png"/></a></li>
-                            <li><a href="signin.html"> <p>Login</p> <img class="icon" src="images/icons/login.png"/></a></li>
-                        </ul>
-                        <form action="" class="form" autocomplete="off">
-                            <input type="search" name="search-bar" id="search-bar-mainpage" placeholder="cauta un produs.." onclick="hidePlaceholder(this)" onblur="replaceSearchText(this)"/>
-                        </form>
-                    </div>
+            <div class="cover">
+                <header>
+                    <nav class="navbar">
+                        <img src="images/icons/logoNOB.png" style="height: 100px;"/>
+                        <div>
+                            <ul class="navbar-list" id="index-navbar">
+                            </ul>
+                            <input type="search" name="search-bar" id="hero-search" placeholder="cauta un produs.." autocomplete="off" onclick="hidePlaceholder(this)" onblur="replaceSearchText(this)"/>
+                        </div>
+                    </nav>
+                </header>
 
-                </nav>
-
-                <div class="nav-category"> 
-                    <a href="daiana.html"> <p>Daiana's candles</p></a>
-                    <a href="raluca.html"> <p>Raluca's baskets</p></a>
-                    <a href="antonela.html" > <p>Antonela's crosses</p></a>
-                    <a href="mirela.html"> <p>Mmasha Concept</p></a>
-                    <a href="doina.html" > <p>Doina's jewerlys</p></a>
-                    <a href="carmina.html"> <p>Carmina's paintings</p></a>
-                </div>
-            </header>
-    
-            <div class="hero">
-                <p class="hero-text"> Euro Smart Creativ este o firmă de design personalizat care îți dă ocazia să îți construiești propriile pachete de cadou creative</p>
-                <br/>
-                <p>Toate produsele prezentate sunt creație autohtonă, doar din România, realizate cu multă dăruire de către artiști și autori români </p>
-            </div>
-
-            <section>
-                <h1>Raluca's baskets</h1>
-                <h2>Creativity is unique</h2>
-                <!-- <div style="display: flex;"> -->
-                    <!-- <div><img class='arrowSvg' src="images/icons/chevron-left.svg" alt="arrow"></div> -->
-                    <div class="products" id="sectiunea1"></div>
-                    <!-- <div><img class='arrowSvg' src="images/icons/chevron-right.svg" alt="arrow"></div> -->
-                <!-- </div> -->
-
-            </section>
-
-            <div class="hero small-hero">
-                <p>Pachete creative pentru fiecare sarbatoare mentin atmosfera pentru toata familia.</p>
-                <p>Alege pachetul potrivit pentru tine, punandu-l in cosul de cumparaturi!</p>
-            </div>
-            <section>
-                <h1>Mmasha Concept</h1>
-                <h2>Elegance is good taste</h2>
-                <div class="products" id="sectiunea2">
-                </div>
-            </section>
-
-            <section>
-                <h1>Daiana's Candles and Antonela's crosses</h1>
-                <h2>Through good and bad</h2>
-                <div class="products" id="sectiunea3">
-                </div>
-            </section>
-
-            <div class="ad">
-                <p>Start your free trial today. Cancel or upgrade anytime.</p>
-                <a href="signup.html"><button class="add-button">Button</button></a>
+                <p class="cover-text"> Euro Smart Creativ este o firmă de design personalizat care îți dă ocazia să îți construiești propriile pachete de cadou creative. Toate produsele prezentate sunt creație autohtonă, doar din România, realizate cu multă dăruire de către artiști și autori români.</p>
+                <a href="paginaProduse.html" class="button" onclick="golesteSearch()"> Vezi produse</a>
+                
+                <!-- <form action="" class="form" autocomplete="off">
+                    <input type="search" name="search-bar" id="search-bar-mainpage" placeholder="cauta un produs.." onclick="hidePlaceholder(this)" onblur="replaceSearchText(this)"/>
+                </form> -->
             </div>
 
             <footer>
                 <ul>
-                    <li>The Footer</li>
-                    <li>2022 The Website, Inc.</li>
+                    <li class="top">Companie</li>
+                    <li>2022 EuroSmartCreativ</li>
                 </ul>
                 <ul>
-                    <li>ABOUT</li>
-                    <li>Team</li>
-                    <li>Jobs</li>
-                    <li>Blog</li>
-                    <li>Press</li>
+                    <li class="top">Despre</li>
+                    <li>Echipa</li> 
+                    <li>Contact</li>
                 </ul>
                 <ul>
-                    <li>HELP</li>
-                    <li>FAQ</li>
-                    <li>Security</li>
-                    <li>Terms of Service</li>
-                    <li>Privacy Policy</li>
+                    <li class="top">Alte informatii</li>
+                    <li>Locatie</li>
+                    <li>GDPR</li>
                 </ul>
                 <ul>
-                    <li>CONNECT</li>
-                    <li><img class="icon" src="images/icons/facebook.png"/><p>Facebook</p></li>
-                    <li><img class="icon" src="images/icons/youtube.png"/><p>Youtube</p></li>
-                    <li><img class="icon" src="images/icons/twitter.png"/><p>Twitter</p></li>
-                    <li><img class="icon"src="images/icons/instagram.png"/><p>Instagram</p></li>
+                    <li class="top">CONNECT</li>
+                    <li><img class="icon" src="images/icons/facebook.svg"/><p>Facebook</p></li>
+                    <li><img class="icon"src="images/icons/instagram.svg"/><p>Instagram</p></li>
                 </ul>
             </footer>
+
+            <div class="poza">
+            </div>
+
+            <div class="echipa despre">
+                <h1>Echipa noastra</h1>
+                <div class="row">
+                    
+                    <div class="person-card">
+                    <img src="images/team/girl1.jpg" alt="Daiana" style="width:100%">
+                    <div class="container">
+                        <h2>Daiana</h2>
+                        <p class="title">Artist Lumanari &amp; Asociat</p>
+                        <p>Fire îndrăzneață, pregătită să înfrunte orice provocare.</p>
+                        <p>Email: daiana@creativ.ro</p>
+                        <p><button class="button">Contact</button></p>
+                    </div>
+                    </div>
+                
+                
+                
+                    <div class="person-card">
+                    <img src="images/team/girl5.jpg" alt="Raluca" style="width:100%">
+                    <div class="container">
+                        <h2>Raluca</h2>
+                        <p class="title">Artist Creativitate &amp; Asociat</p>
+                        <p>Având personalitate plăcută, vine cu idei creative și unice gata să îți schimbe perspectiva.</p>
+                        <p>Email: raluca@creativ.ro</p>
+                        <p><button class="button">Contact</button></p>
+                    </div>
+                    </div>
+                
+                
+                
+                    <div class="person-card">
+                    <img src="images/team/girl2.jpg" alt="Mmasha" style="width:100%">
+                    <div class="container">
+                        <h2>Mmasha</h2>
+                        <p class="title">Artist &amp; Creator palarii</p>
+                        <p>Moda este un stil de viață, caracterizând persoana care o definește și cea care o folosește.</p>
+                        <p>Email: mmasha@creativ.ro</p>
+                        <p><button class="button">Contact</button></p>
+                    </div>
+                    </div>
+
+                    <div class="person-card">
+                        <img src="images/team/girl3.jpg" alt="Antonela" style="width:100%">
+                        <div class="container">
+                            <h2>Antonela</h2>
+                            <p class="title">Artist tablouri &amp; icoane</p>
+                            <p>Persoanele pot fi asemănătoare între ele, dar spiritul este unic. La fel și icoanele.</p>
+                            <p>Email: antonela@creativ.ro</p>
+                            <p><button class="button">Contact</button></p>
+                        </div>
+                        </div>
+                    
+                    
+                    
+                        <div class="person-card">
+                        <img src="images/team/man1.jpg" alt="Karl" style="width:100%">
+                        <div class="container">
+                            <h2>Karl</h2>
+                            <p class="title">Programator Front-End &amp; Asociat</p>
+                            <p>Problemele sunt făcute pentru a fi rezolvate. În informatică orice dificultate are și o soluție.</p>
+                            <p>Email: carlas@creativ.ro</p>
+                            <p><button class="button">Contact</button></p>
+                        </div>
+                        </div>
+                    
+                    
+                    
+                        <div class="person-card">
+                        <img src="images/team/girl4.jpg" alt="Doina" style="width:100%">
+                        <div class="container">
+                            <h2>Doina</h2>
+                            <p class="title">Artist &amp; Creator bijuterii</p>
+                            <p>Experiențele din viața alcătuiesc oglinda propriei persoane. Bijuteriile rafinează interiorul sufletului.</p>
+                            <p>Email: doina@creativ.ro</p>
+                            <p><button class="button">Contact</button></p>
+                        </div>
+                        </div>
+                    
+                </div>
+            </div>
+
+            <div class="poza">
+            </div>
+
+            <div class="main-content">
+                <h1>Produse creative numai pentru voi</h1>
+                <div id="sectiunea1"></div>
+                <a href="paginaProduse.html" class="button mai-multe" onclick="golesteSearch()"> Vezi mai multe produse</a>
+            </div>
+            
+            <div class="poza">
+            </div>
+
+            <div class="contact despre">
+                <h1>Contact</h1>
+            </div>
+
+            <div class="poza">
+            </div>
+
+
+            <div class="locatie despre">
+                <h1>Locatie</h1>
+                <h2>Strada Palas nr. 7A Iasi, Romania</h2> <h3> T: 0744531519 / 0756089151, email: cinfopalas.a@palasiasi.ro.</h3>
+                <div><a href="https://www.google.com/maps/place/Palas+Mall/@47.1531293,27.5528447,13.04z/data=!4m12!1m6!3m5!1s0x0:0xe4c014f1ca16475a!2sPalas!8m2!3d47.1561373!4d27.5869704!3m4!1s0x40cafb8385e01959:0xe7e5d1b7395595d2!8m2!3d47.1580077!4d27.5891531" target="_blank"><img src="images/harta.png" alt="harta"></a></div>
+            </div>
+
         </div>
         <script src="global.js" type="text/javascript"></script>
         <script src="index.js" type="text/javascript"></script>

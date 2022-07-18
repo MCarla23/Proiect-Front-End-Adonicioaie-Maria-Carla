@@ -1,0 +1,11 @@
+@import 'colors';
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: $beige;
+    margin: 0;
+    font-size: 20px;
+}
+
+ul{list-style: none;}    
+a{text-decoration: none; color: $cioco;}

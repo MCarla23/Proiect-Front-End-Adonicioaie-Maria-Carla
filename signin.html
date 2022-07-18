@@ -9,17 +9,26 @@
     </head>
     <body>
         <div class="sign" id="signin">
-            <a href="index.html"><img src="images/icons/logoNOB.png" alt="logo" class="logo" style="left: 10px;"> </a>
-            <form class="sign-form">
+            <header>
+                <nav class="navbar">
+                    <a href="index.html"><img src="images/icons/logoNOB.png" style="height: 100px;"/></a>
+                    <div>
+                        <ul class="navbar-list" id="signin-navbar">
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+            <form action="index.html" class="sign-form">
                 <h1 style="color: #ac8748;">Login</h1>
-                <input type="text" id="username" name="Username" placeholder="Username" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
-                <input type="password" id="parola" name="Parola" placeholder="Password" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
-                <input type="submit" id="submit" name="submit" value="SIGN IN" class="disabled" style="color: #ac8748; background-color: #382831; font-size: 18px;">
+                <input type="text" id="cont" name="Username/Email" placeholder="Username/Email" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
+                <input type="password" id="parola-cont" name="Parola" placeholder="Parola" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
+                <input type="submit" id="submit" name="submit" value="SIGN IN" onclick='collectDataFromLog()'>
                 <p style="font-weight:100; font-size: 15px;">Nu ai cont? <a href="signup.html" style="font-weight: bold; color: #ac8748;">Inregistreaza-te aici!</a></p>
             </form>
         </div>
 
         <script src="global.js" type="text/javascript"></script>
-        <script src="sign.js" type="text/javascript"></script>
+        <script src="signin.js" type="text/javascript"></script>
     </body>
 </html>

@@ -9,21 +9,29 @@
     </head>
     <body>
         <div class="sign">
-            <a href="index.html"><img src="images/icons/logoNOB.png" alt="logo" class="logo" style="left: 10px;"> </a>
-            <form class="sign-form">
+            <header>
+                <nav class="navbar">
+                    <a href="index.html"><img src="images/icons/logoNOB.png" style="height: 100px;"/></a>
+                    <div>
+                        <ul class="navbar-list" id="signup-navbar">
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+            <form action="signin.html" class="sign-form">
                 <h1 style="color: #ac8748;">Register</h1>
                 <input type="text" id="username" name="Username" placeholder="Username" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
                 <input type="text" id="nume" name="Nume" placeholder="Nume" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
                 <input type="text" id="prenume" name="Prenume" placeholder="Prenume" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
-                <input type="text" id="oras" name="Oras" placeholder="Oras" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
                 <input type="email" id="email" name="Email" placeholder="Email" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
                 <input type="password" id="parola" name="Parola" placeholder="Parola" onclick="hidePlaceholder(this)" onblur="rePlaceholder(this)" required>
-                <input type="submit" id="submit" name="submit" value="SIGN UP" class="disabled" style="color: #ac8748; background-color: #382831; font-size: 18px;">
+                <input type="submit" id="submit" name="submit" value="SIGN UP"  onclick='collectDataFromSign()'>
                 <p style="font-weight:100; font-size: 15px;">Ai deja un cont? <a href="signin.html" style="font-weight: bold; color: #ac8748;">Logheaza-te!</a></p>
             </form>
         </div>
 
         <script src="global.js" type="text/javascript"></script>
-        <script src="sign.js" type="text/javascript"></script>
+        <script src="signup.js" type="text/javascript"></script>
     </body>
 </html>

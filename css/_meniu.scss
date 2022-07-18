@@ -1,0 +1,15 @@
+.meniu{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 1px solid $mocha;
+    
+    a{
+        font-weight: bold;
+        color: $mocha;
+
+        &:hover{
+            color: $cream;
+        }
+    }
+}

@@ -1,39 +1,20 @@
-.ad {
-    background-color: $red;
-    background-image: linear-gradient(
-        rgba(123, 94, 94, 0.507),
-        rgba(48, 13, 13, 0.618)
-      ),
-      url("../images/hero/back2.jpg");
-    background-size: cover;
-    color: white;
-    height: 100px;
-    
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
-
-    button{ 
-        width: 100px; height: 40px;
-        border: 2px solid #382831;
-        border-radius: 10px;
-        color: $red;
-        background-color: $gold;
-    }
-}
+@import 'colors';
 
 footer{
     display: flex;
     justify-content: space-evenly;
-    color: $red;
+    background-color: $beige;
+    color: $mocha;
+    font-size: 20px;
 
+    .top{font-size: 30px;}
     ul{
         li{
             display: flex;
             align-items: center;
             gap: 10px;
             
+            img{width: 30px;}
             p{margin: 10px;}
         }
         li:first-child{font-weight: bold; margin-bottom: 10px; ;}
