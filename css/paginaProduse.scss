@@ -6,11 +6,8 @@ header{
 
 .text-browse{margin: 10px 0 0 0;}
 
-.main-content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 100px;
+.browseBottom{
+    form{margin-top: 40px;}
 }
 
 .product-section{
@@ -19,30 +16,44 @@ header{
     align-items: center;
 }
 
+.showingResults{
+    display: flex;
+    align-items: center;
+
+    p{margin-right: 25px}
+    .numberBox{
+        margin-right: 10px;
+    
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
 hr{border: 1px solid $mocha;}
 
 //separare
 .main-content#cart-content{
     padding-bottom: 100px;
+    hr{border:0; border-bottom: 1px solid $mocha; width: 95%;}
 
     .products{
         flex-direction: column;
 
         .produs-din-cart{
             display: flex;
-            justify-content: space-between;
             align-items: flex-start;
             p{margin: 0 10px;}
 
             .card-name{
-            margin-right: 100px;
+                margin-left: 30px;
+                width: 250px;
             }
         }
 
         .yourCart.card{
             width: 100px;
             height: 100px;
-
 
             .card-detalii{
                 display: flex;
@@ -52,6 +63,27 @@ hr{border: 1px solid $mocha;}
             .showMore{width: 50px; font-size: 15px;}
         }            
 
+        .cantitate{
+            display: flex;
+            align-items: center;
+            p{ margin-left: 100px;}
+        }
     }
 
+    svg:hover{
+        cursor: pointer;
+    }
+    input{
+        background-color: transparent; 
+        color: $mocha; 
+        width: 45px; 
+        text-align: center;
+        margin: 0 5px;
+        border-bottom: 1px solid $beige;
+
+        &:focus{
+            outline: 0;
+            border-bottom: 1px solid $mocha;
+        }
+    }
 }

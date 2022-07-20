@@ -13,36 +13,44 @@ if(userulEsteLogat == 1)
 else createHeaderWithoutUser('paginaProduse-navbar');
 
 function reloadFunctions(tip){
+    console.log('intrat');
     document.querySelector('#allProducts-products').innerHTML = '';
     if(tip == -1) {
+        currentPage = 1;
         allProductsPerPage = document.getElementById('nrPerPageAllProducts1').value;
         document.getElementById('nrPerPageAllProducts2').value = allProductsPerPage;
         addCards(vectorAllProducts,0,"#allProducts-products", allProductsPerPage, 0);
     }
     else if(tip == -2){
+        currentPage = 1;
         allProductsPerPage = document.getElementById('nrPerPageAllProducts2').value;
         document.getElementById('nrPerPageAllProducts1').value = allProductsPerPage;
         addCards(vectorAllProducts,0,"#allProducts-products", allProductsPerPage, 0);
     }
     else if(tip == -3){
-        console.log('intrat in oldest');
+        //oldest
         currentPage = 1;
-        vectorAllProducts = vectorProduse;
+        vectorAllProducts = vectorProduse.slice();
         addCards(vectorAllProducts,0,"#allProducts-products", allProductsPerPage, 0);
     }
     else if(tip == -4){
         currentPage = 1;
-        vectorAllProducts = vectorAllProducts.reverse();
+        console.log('inainte',vectorProduse);
+        vectorAllProducts = vectorProduse.slice();
+        vectorAllProducts.reverse();
+        console.log('dupa',vectorProduse);
         addCards(vectorAllProducts,0,"#allProducts-products", allProductsPerPage, 0);
     }
     else if(tip == -5){
         currentPage = 1;
-        vectorAllProducts = vectorAllProducts.sort((a,b) => parseInt(a.pret) - parseInt(b.pret));
+        vectorAllProducts = vectorProduse.slice();
+        vectorAllProducts.sort((a,b) => parseInt(a.pret) - parseInt(b.pret));
         addCards(vectorAllProducts,0,"#allProducts-products", allProductsPerPage, 0);
     }
     else if(tip == -6){
         currentPage = 1;
-        vectorAllProducts = vectorAllProducts.sort((a,b) => parseInt(b.pret) - parseInt(a.pret));
+        vectorAllProducts = vectorProduse.slice();
+        vectorAllProducts.sort((a,b) => parseInt(b.pret) - parseInt(a.pret));
         addCards(vectorAllProducts,0,"#allProducts-products", allProductsPerPage, 0);
     }
     else{

@@ -1,3 +1,10 @@
+.main-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 100px;
+}
+
 .meniu{
     width: 100%;
     display: flex;

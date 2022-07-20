@@ -15,7 +15,7 @@
                     <div>
                         <ul class="navbar-list" id="paginaProduse-navbar">
                         </ul>
-                        <input type="search" name="search-bar-all" id="search-all" placeholder="cauta un produs.." autocomplete="off" onclick="hidePlaceholder(this)" onblur="replaceSearchText(this)"/>
+                        <input type="search" name="search-bar-all" id="search-all" placeholder="cauta un produs.." autocomplete="off" onclick="hidePlaceholder(this)" onfocusout="replaceSearchText(this)"/>
                     </div>
                 </nav>
             </header>
@@ -27,50 +27,8 @@
                     <a href="antonela.html" > <p>Antonela's crosses</p></a>
                     <a href="mirela.html"> <p>Mmasha Concept</p></a>
                     <a href="doina.html" > <p>Doina's jewerlys</p></a>
-                    <!-- <a href="carmina.html"> <p>Carmina's paintings</p></a> -->
                 </div>
 
-                <!-- <div class="filter">
-                    <form class="filtru">
-                        <input type="submit" value="Filtru">
-                        <h2>Ocazie:</h2>
-                        <div>
-                            <input type="checkbox" id="paste" name="ocazie" value="paste">
-                            <label for="paste"> Paste</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="craciun" name="ocazie" value="craciun">
-                            <label for="craciun"> Craciun</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="nicolae" name="ocazie" value="nicolae">
-                            <label for="nicolae"> Nicolae</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="onomastica" name="ocazie" value="onomastica">
-                            <label for="onomastica"> Onomastica</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="cadou" name="ocazie" value="cadou">
-                            <label for="cadou"> Cadou </label>
-                        </div>
-
-                        <h2>Gen: </h2>
-                        <div>
-                            <input type="checkbox" id="feminin" name="gen" value="feminin">
-                            <label for="feminin"> Feminin </label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="masculin" name="gen" value="masculin">
-                            <label for="masculin"> Masculin </label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="neutru" name="gen" value="neutru">
-                            <label for="neutru"> Neutru </label>
-                        </div>
-                    </form>
-                    
-                </div> -->
                 <p class="text-browse"> <span id="browsing-title"></span> rezultate</p>
                 <div class="product-section">
                     <form class="form-results">  
@@ -81,7 +39,7 @@
                                 <option value="20">20</option>
                                 <option value="15">15</option>
                                 <option value="10">10</option>
-                                <option value="5">5</option>
+                                <option value="1">1</option>
                             </select>
                         </div>
                         <div>
@@ -105,7 +63,7 @@
                                 <option value="20">20</option>
                                 <option value="15">15</option>
                                 <option value="10">10</option>
-                                <option value="5">5</option>
+                                <option value="1">1</option>
                             </select>
                         </form>
                         <div class="showingResults">
@@ -113,7 +71,8 @@
                     </div>
                 </div>
             </div>
-
+            <div class="poza">
+            </div>
             <footer>
                 <ul>
                     <li class="top">Companie</li>
@@ -131,8 +90,8 @@
                 </ul>
                 <ul>
                     <li class="top">CONNECT</li>
-                    <li><img class="icon" src="images/icons/facebook.svg"/><p>Facebook</p></li>
-                    <li><img class="icon"src="images/icons/instagram.svg"/><p>Instagram</p></li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="#75342c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg><p>Facebook</p></li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="#75342c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg><p>Instagram</p></li>
                 </ul>
             </footer>
         </div>

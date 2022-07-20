@@ -41,3 +41,16 @@ header {width: 100%;}
         img{width: 30px;}
     }
 }
+
+@media (max-width: 1050px) {
+    p, li{font-size: 20px;}
+}
+
+@media (max-width: 880px) {
+    img{height: 10px;}
+    a{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        p{display: none;}
+    }
+}

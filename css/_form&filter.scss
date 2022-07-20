@@ -43,3 +43,10 @@ input[type="search"]{
         outline: 0;
     }
 }
+
+@media (max-width: 880px) {
+    input[type="search"]{
+        width: 80%;
+        font-size: 10px;
+    }
+}

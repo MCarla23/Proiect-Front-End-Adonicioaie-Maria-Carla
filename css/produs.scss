@@ -1,0 +1,20 @@
+@import 'all';
+
+header{
+    background-color: $cioco;
+}
+
+#prezentare-produs{
+    width: 100%;
+    align-self: flex-start;
+    display: flex;
+    gap: 20px;
+    text-align: justify;
+
+    button, input{background-color: transparent; color: $mocha;}
+    input{
+        width: 60px; 
+        text-align: center;
+    }
+    img{width: 650px; height: 600px;}
+}
